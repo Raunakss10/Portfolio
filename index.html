@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raunak: Personal site and portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="global.js"></script>
+  <script type="module" src="index.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <h1>Raunak</h1>
+      <svg class="spark" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+        <polyline points="0,48.0 10,47.4 20,51.5 30,49.6 40,48.3 50,48.1 60,42.6 70,41.3 80,41.6 90,44.0 100,37.3 110,33.4 120,26.7 130,29.3 140,30.4 150,23.0 160,27.9 170,32.6 180,33.2 190,33.3 200,27.4 210,19.7 220,18.7 230,11.5 240,6.1 250,6.0 260,6.0 270,6.0 280,6.0 290,9.1 300,7.9 310,8.3 320,6.9 330,7.6 340,6.0 350,6.0 360,11.1 370,16.1 380,19.1 390,20.4 400,16.6" pathLength="1" />
+      </svg>
+      <p class="tagline">Data Science at UC San Diego. Markets, quant research, and building things with data.</p>
+    </header>
+    <div class="intro">
+      <img src="me.jpg" alt="Raunak in a suit on the beach by Scripps Pier">
+      <p>I'm studying Data Science with minors in Finance and Applied Math. I'm an research assistant at UCSD's MOSAIC Lab and an investment analyst on the Student Foundation Investment Committee. Outside class I build trading research projects, from ERCOT power spreads to crude oil inventory events, and I captain the UCSD cricket team.</p>
+    </div>
+
+    <section id="profile-stats" aria-live="polite">
+      <h2>GitHub Profile Stats</h2>
+      <p class="empty">Loading…</p>
+    </section>
+
+    <section class="latest">
+      <h2>Latest Projects</h2>
+      <div class="projects">
+        <!-- Latest 3 projects are added here by index.js -->
+      </div>
+      <p class="see-all"><a href="projects.html">See all projects →</a></p>
+    </section>
+  </main>
+</body>
+</html>
