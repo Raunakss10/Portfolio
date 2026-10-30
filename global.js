@@ -150,8 +150,10 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     article.innerHTML = `
       ${imageHTML}
       <${headingLevel}>${titleHTML}</${headingLevel}>
-      ${yearHTML}
-      <p>${project.description ?? ''}</p>
+      <div class="project-info">
+        <p>${project.description ?? ''}</p>
+        ${yearHTML}
+      </div>
     `;
 
     containerElement.appendChild(article);
