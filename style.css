@@ -532,3 +532,180 @@ button:hover {
     align-self: center;
   }
 }
+
+/* ---------- Lab 6: Meta page ---------- */
+.meta-intro {
+  color: var(--muted);
+  margin-top: -0.5rem;
+}
+
+.meta-h2 {
+  margin-top: 2.5rem;
+  font-size: 1.15rem;
+}
+
+.chart-hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+
+/* Stats (same look as the GitHub stats on the home page) */
+dl.stats {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.15rem 1rem;
+  margin: 0;
+  padding: 1rem;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-align: center;
+}
+
+dl.stats:empty {
+  display: none;
+}
+
+dl.stats dt {
+  grid-row: 1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+dl.stats dd {
+  grid-row: 2;
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+dl.stats dd span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+dl.stats abbr {
+  text-decoration: none;
+}
+
+/* Chart */
+#chart svg {
+  width: 100%;
+  height: auto;
+}
+
+#chart circle {
+  fill: var(--accent);
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+  outline: none;
+}
+
+#chart circle:hover,
+#chart circle:focus-visible {
+  transform: scale(1.5);
+}
+
+#chart circle.selected {
+  fill: #ff6b6b;
+}
+
+.gridlines .domain {
+  display: none;
+}
+
+.gridlines .tick line {
+  stroke-opacity: 0.3;
+}
+
+.axis text {
+  fill: var(--muted);
+  font-size: 18px;
+}
+
+.axis path,
+.axis line {
+  stroke: var(--line);
+}
+
+/* Brush */
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+
+.selection {
+  fill: var(--accent);
+  fill-opacity: 0.1;
+  stroke: var(--ink);
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+#selection-count {
+  margin: 1rem 0 0.5rem;
+  font-weight: 700;
+}
+
+/* Tooltip */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.8rem;
+  margin: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info dt {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+dl.info dd {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 10;
+  max-width: 18rem;
+  padding: 0.75rem 1rem;
+  background: color-mix(in oklch, var(--field) 85%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.15);
+  pointer-events: none;
+}
+
+.tooltip a {
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selection {
+    animation: none;
+  }
+}

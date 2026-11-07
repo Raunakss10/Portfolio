@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta | Raunak</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Meta</h1>
+    <p class="meta-intro">Stats about the code behind this site, computed from its git history with <code>elocuent</code> and drawn with D3.</p>
+
+    <h2 class="meta-h2">Summary</h2>
+    <div id="stats"></div>
+
+    <h2 class="meta-h2">Commits by time of day</h2>
+    <p class="chart-hint">Hover a dot for details. Drag on the chart to select commits.</p>
+    <div id="chart"></div>
+
+    <p id="selection-count">No commits selected</p>
+    <dl id="language-breakdown" class="stats"></dl>
+
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+      <dt>Commit</dt>
+      <dd><a href="" id="commit-link" target="_blank" rel="noopener"></a></dd>
+
+      <dt>Date</dt>
+      <dd id="commit-date"></dd>
+
+      <dt>Time</dt>
+      <dd id="commit-time"></dd>
+
+      <dt>Author</dt>
+      <dd id="commit-author"></dd>
+
+      <dt>Lines</dt>
+      <dd id="commit-lines"></dd>
+    </dl>
+  </main>
+</body>
+</html>
