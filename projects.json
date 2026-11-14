@@ -1,5 +1,12 @@
 [
   {
+    "title": "Bikewatching: Boston Bike Traffic Map",
+    "year": "2026",
+    "image": "bikewatching.svg",
+    "description": "Interactive Mapbox + D3 map of 260,000 Bluebikes trips. Circle size shows station traffic, color shows arrivals vs. departures, and a time slider filters the data by hour.",
+    "url": "https://raunakss10.github.io/bikewatching/"
+  },
+  {
     "title": "DSC 106 Project 2: Persuasive vs. Deceptive Visualization",
     "year": "2026",
     "image": "dsc-106-project-2--persuasive-vs--decept.svg",
