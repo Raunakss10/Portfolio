@@ -11,20 +11,41 @@
   <script type="module" src="../global.js"></script>
   <script type="module" src="main.js"></script>
 </head>
-<body>
+<body class="meta-page">
   <main>
     <h1>Meta</h1>
-    <p class="meta-intro">Stats about the code behind this site, computed from its git history with <code>elocuent</code> and drawn with D3.</p>
+    <p class="meta-intro">How the code behind this site grew, commit by commit. Computed from its git history with <code>elocuent</code> and drawn with D3.</p>
 
     <h2 class="meta-h2">Summary</h2>
     <div id="stats"></div>
 
-    <h2 class="meta-h2">Commits by time of day</h2>
-    <p class="chart-hint">Hover a dot for details. Drag on the chart to select commits.</p>
-    <div id="chart"></div>
+    <h2 class="meta-h2">Commits over time</h2>
+    <p class="chart-hint">Scroll through the story and the chart follows along. Hover a dot for details, or drag on the chart to select commits.</p>
 
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="stats"></dl>
+    <div id="scrolly-1" class="scrolly">
+      <div id="scatter-story" class="story"></div>
+      <div id="scatter-plot" class="sticky-panel">
+        <div class="time-filter">
+          <label for="commit-progress">Show commits until:</label>
+          <input id="commit-progress" type="range" min="0" max="100" value="100">
+          <time id="commit-time"></time>
+        </div>
+        <div id="chart"></div>
+        <p id="selection-count">No commits selected</p>
+        <dl id="language-breakdown" class="stats"></dl>
+      </div>
+    </div>
+
+    <h2 class="meta-h2">The race for the biggest file</h2>
+    <p class="chart-hint">Each dot is one line of code, colored by language.</p>
+
+    <div id="scrolly-2" class="scrolly">
+      <div id="files-story" class="story"></div>
+      <div id="files-plot" class="sticky-panel">
+        <ul class="type-legend" aria-label="Line colors by language"></ul>
+        <dl id="files"></dl>
+      </div>
+    </div>
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
       <dt>Commit</dt>
@@ -34,7 +55,7 @@
       <dd id="commit-date"></dd>
 
       <dt>Time</dt>
-      <dd id="commit-time"></dd>
+      <dd id="commit-time-tip"></dd>
 
       <dt>Author</dt>
       <dd id="commit-author"></dd>

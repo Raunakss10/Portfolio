@@ -9,7 +9,6 @@ html {
   --field: light-dark(#FFFFFF, #142034);
 }
 
-/* Chart-paper background */
 html {
   background-color: var(--paper);
   background-image:
@@ -47,7 +46,6 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* Nav */
 nav {
   --border-color: oklch(50% 10% 200 / 40%);
   display: flex;
@@ -78,7 +76,6 @@ nav a:last-child {
   margin-left: auto;
 }
 
-/* Headings */
 h1 {
   font-size: clamp(2.25rem, 7vw, 3.25rem);
   font-weight: 800;
@@ -99,7 +96,6 @@ h3 {
   margin: 0;
 }
 
-/* Home */
 .hero h1 {
   font-size: clamp(3.5rem, 16vw, 7rem);
   letter-spacing: -0.05em;
@@ -154,7 +150,6 @@ h3 {
   margin: 0;
 }
 
-/* Projects */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
@@ -210,7 +205,6 @@ h3 {
   font-weight: 500;
 }
 
-/* GitHub stats */
 #profile-stats dl {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -239,7 +233,6 @@ h3 {
   color: var(--accent);
 }
 
-/* Resume */
 section {
   margin-top: 2.5rem;
 }
@@ -290,7 +283,6 @@ li::marker {
   color: var(--accent);
 }
 
-/* Contact form */
 .lede {
   color: var(--muted);
   margin-bottom: 2rem;
@@ -347,7 +339,6 @@ button:hover {
   filter: brightness(1.1);
 }
 
-/* Theme switcher */
 .color-scheme {
   position: absolute;
   top: 1rem;
@@ -367,14 +358,12 @@ button:hover {
   padding: 0.2rem 0.4rem;
 }
 
-/* Keep switcher from overlapping nav on narrower screens */
 @media (max-width: 60rem) {
   body {
     padding-top: 3.5rem;
   }
 }
 
-/* Small screens */
 @media (max-width: 34rem) {
   nav a:last-child {
     margin-left: 0;
@@ -404,7 +393,6 @@ button:hover {
   }
 }
 
-/* ---------- Lab 5: pie chart + legend ---------- */
 .project-info {
   display: grid;
   gap: 0.35rem;
@@ -533,7 +521,6 @@ button:hover {
   }
 }
 
-/* ---------- Lab 6: Meta page ---------- */
 .meta-intro {
   color: var(--muted);
   margin-top: -0.5rem;
@@ -550,7 +537,6 @@ button:hover {
   margin: 0 0 0.5rem;
 }
 
-/* Stats (same look as the GitHub stats on the home page) */
 dl.stats {
   display: grid;
   grid-auto-flow: column;
@@ -596,7 +582,6 @@ dl.stats abbr {
   text-decoration: none;
 }
 
-/* Chart */
 #chart svg {
   width: 100%;
   height: auto;
@@ -637,7 +622,6 @@ dl.stats abbr {
   stroke: var(--line);
 }
 
-/* Brush */
 @keyframes marching-ants {
   to {
     stroke-dashoffset: -8;
@@ -658,7 +642,6 @@ dl.stats abbr {
   font-weight: 700;
 }
 
-/* Tooltip */
 dl.info {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -707,5 +690,216 @@ dl.info[hidden]:not(:hover, :focus-within) {
 @media (prefers-reduced-motion: reduce) {
   .selection {
     animation: none;
+  }
+}
+
+body.meta-page {
+  max-width: min(120ch, 100%);
+}
+
+#chart circle {
+  fill-opacity: 0.7;
+  transition: all 200ms, r calc(var(--r) * 20ms) ease-out;
+}
+
+#chart circle:hover,
+#chart circle:focus-visible {
+  fill-opacity: 1;
+}
+
+@starting-style {
+  #chart circle {
+    r: 0;
+  }
+}
+
+.scrolly {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.story {
+  flex: 1;
+  min-width: 0;
+}
+
+.sticky-panel {
+  flex: 1.6;
+  min-width: 0;
+  position: sticky;
+  top: 1rem;
+}
+
+.step {
+  min-height: 55vh;
+  padding: 1rem 0 0 1rem;
+  border-left: 3px solid var(--line);
+  color: var(--muted);
+  transition: color 200ms, border-color 200ms;
+}
+
+.step:first-child {
+  margin-top: 20vh;
+}
+
+.step:last-child {
+  min-height: 70vh;
+}
+
+.step p {
+  margin: 0 0 0.5rem;
+}
+
+.step-date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.step.is-active {
+  color: var(--ink);
+  border-left-color: var(--accent);
+}
+
+.time-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.time-filter label {
+  white-space: nowrap;
+}
+
+#commit-progress {
+  flex: 1;
+  min-width: 8rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  accent-color: var(--accent);
+}
+
+#commit-time {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+#files-plot {
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+#files {
+  display: grid;
+  grid-template-columns: minmax(9rem, 1fr) 4fr;
+  gap: 0.6rem 1rem;
+  margin: 0;
+}
+
+#files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+#files dt {
+  grid-column: 1;
+  overflow-wrap: anywhere;
+}
+
+#files dt code {
+  font-size: 0.85rem;
+}
+
+#files dt small {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+#files dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.4em;
+  margin-left: 0;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+  transition: transform 300ms;
+}
+
+@starting-style {
+  .loc {
+    transform: scale(0);
+  }
+}
+
+.type-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--field);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.type-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #chart circle,
+  .loc,
+  .step {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .scrolly {
+    flex-direction: column;
+  }
+
+  .sticky-panel {
+    order: -1;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    background: var(--paper);
+    padding-block: 0.5rem;
+  }
+
+  #files-plot {
+    max-height: 50vh;
+  }
+
+  .step {
+    min-height: 40vh;
   }
 }
